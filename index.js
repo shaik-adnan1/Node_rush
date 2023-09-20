@@ -1,4 +1,5 @@
 const fs = require("fs");
+// const http = require('http')
 
 // Blocking synchronous
 /*
@@ -10,9 +11,17 @@ fs.writeFileSync("./testREADME.md", textOut);
 console.log("file written");
 */
 // Non - blocking Asynchronous
-fs.readFile("./README.md", "utf-8", (err, data1) => {
-  fs.readFile(`./${data1}.txt`, "utf-8", (err, data2) => {
-    console.log(data2);
+fs.readFile("./starttttt.md", "utf-8", (err, data1) => {
+  if (err) console.log("error!");
+  fs.readFile(`./${data1}`, "utf-8", (err, data2) => {
+    // console.log(data2);
+    fs.writeFile(`./output.md`, `${data1} \n ${data2}`, "utf-8", err => {
+      console.log("your file has been written");
+      fs.readFile(`./output.md`, "utf-8", (err, data) => {
+        console.log(data);
+      });
+    });
   });
+  // console.log(data1);
 });
 console.log("reading file");
