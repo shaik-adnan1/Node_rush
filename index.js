@@ -1,5 +1,6 @@
 const fs = require("fs");
 const http = require("http");
+const { json } = require("node:stream/consumers");
 const url = require("url");
 
 // // Blocking synchronous
@@ -37,11 +38,23 @@ const server = http.createServer((req, res) => {
 
   if (pathName === "/" || pathName === "/overview") {
     res.end("This is the overview section");
+  } else if (pathName === "/api") {
+    console.log(`${__dirname}`);
+    fs.readFile(`${__dirname}/dev_data/data.json`, "utf-8", (error, data) => {
+      const productData = JSON.parse(data);
+      res.writeHead(200, {
+        "Content-type": "text/html",
+      });
+      res.end(data);
+      console.log(productData);
+    });
+
+    res.end("API");
   } else if (pathName === "/products") {
     res.end("this is the product section");
   } else {
     res.writeHead(404, {
-      'Content-type': 'text/html'
+      "Content-type": "text/html",
     });
     res.end("<h1>page not found</h1>");
   }
