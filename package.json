@@ -1,0 +1,22 @@
+{
+  "name": "node-farm",
+  "version": "1.0.0",
+  "description": "Node js fundamentals, file i/o, modules, templating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaik-adnan1/Node_rush.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Sk. Yousuf Adnan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaik-adnan1/Node_rush/issues"
+  },
+  "homepage": "https://github.com/shaik-adnan1/Node_rush#readme"
+}
